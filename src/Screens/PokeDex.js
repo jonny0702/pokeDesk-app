@@ -5,12 +5,12 @@ import { getPokemonsApi, getPokemonDetailApi } from "../Api/Pokemon";
 
 const PokeDex = () => {
   const [pokemonData, setPokemonData] = useState([]);
+  const [nextUrl, setNextUrl] = useState();
 
   const getPokemons = async () => {
     try {
       const pokemonsDetail = [];
-      const pokemons = await getPokemonsApi();
-
+      const pokemons = await getPokemonsApi(nextUrl);
       for await (const pokemon of pokemons.results) {
         const pokemonDetails = await getPokemonDetailApi(pokemon.url);
         pokemonsDetail.push({
@@ -21,7 +21,7 @@ const PokeDex = () => {
           image: pokemonDetails.sprites.other["official-artwork"].front_default,
         });
       }
-
+      setNextUrl(pokemons.next);
       setPokemonData([...pokemonsDetail]);
     } catch (error) {
       console.log(error);
@@ -33,10 +33,13 @@ const PokeDex = () => {
       await getPokemons();
     })();
   }, []);
-
   return (
     <SafeAreaView style={Platform.OS === "ios" ? {} : styles.SafeAreaAndroid}>
-      <PokemonList pokemons={pokemonData} />
+      <PokemonList
+        pokemons={pokemonData}
+        loadPokemons={getPokemons}
+        isNext={nextUrl}
+      />
     </SafeAreaView>
   );
 };
