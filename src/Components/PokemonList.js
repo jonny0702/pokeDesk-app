@@ -1,5 +1,10 @@
 import React from "react";
-import { ActivityIndicator, FlatList, StyleSheet } from "react-native";
+import {
+  Platform,
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+} from "react-native";
 import PokemonCard from "./PokemonCard";
 
 const PokemonList = (props) => {
@@ -13,11 +18,11 @@ const PokemonList = (props) => {
       data={pokemons}
       numColumns={2}
       showsVerticalScrollIndicator={false}
-      key={(pokemon) => String(pokemon.id)}
+      keyExtractor={(pokemon) => String(pokemon.id)}
       renderItem={({ item }) => <PokemonCard pokemon={item} />}
       contentContainerStyle={styles.flatListContentContainer}
       onEndReached={isNext && loadMore}
-      onEndReachedThreshold={0.2}
+      onEndReachedThreshold={0.1}
       ListFooterComponent={
         isNext && (
           <ActivityIndicator size="large" style={styles.spiner} color="#AEAE" />
@@ -33,7 +38,7 @@ const styles = StyleSheet.create({
   },
   spiner: {
     marginTop: 20,
-    marginBottom: 60,
+    marginBottom: Platform.OS === "android" ? 90 : 60,
   },
 });
 
