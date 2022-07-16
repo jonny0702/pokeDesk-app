@@ -21,13 +21,13 @@ const PokeDex = () => {
           image: pokemonDetails.sprites.other["official-artwork"].front_default,
         });
       }
+      setPokemonData([...pokemonData, ...pokemonsDetail]);
+
       setNextUrl(pokemons.next);
-      setPokemonData([...pokemonsDetail]);
     } catch (error) {
       console.log(error);
     }
   };
-
   useEffect(() => {
     (async () => {
       await getPokemons();
