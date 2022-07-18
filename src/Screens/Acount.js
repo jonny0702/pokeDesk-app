@@ -1,12 +1,11 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { View, SafeAreaView, StyleSheet, Text } from "react-native";
+import LoginForm from "../Components/auth/LoginForm";
 
 const Acount = () => {
-  return (
-    <SafeAreaView>
-      <Text>Acount</Text>
-    </SafeAreaView>
-  );
+  const auth = null;
+
+  return <View>{auth ? <Text>Panel del usuario</Text> : <LoginForm />}</View>;
 };
 
 const styles = StyleSheet.create({});
