@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { Text, StyleSheet } from "react-native";
 import PokemonList from "../Components/PokemonList";
+import NotLoged from "../Components/NotLoged";
 import useAuth from "../hooks/useAuth";
 import { useFocusEffect } from "@react-navigation/native";
 import { getPokemonFavoritesApi } from "../Api/FavoriteApi";
@@ -32,11 +33,7 @@ const Favorites = () => {
     }, [auth])
   );
 
-  return !auth ? (
-    <Text>Usuario no LOgeado</Text>
-  ) : (
-    <PokemonList pokemons={likePokemons} />
-  );
+  return !auth ? <NotLoged /> : <PokemonList pokemons={likePokemons} />;
 };
 
 const styles = StyleSheet.create({});

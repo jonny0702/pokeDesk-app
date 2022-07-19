@@ -29,13 +29,10 @@ const LoginForm = () => {
         setError(!error);
       } else {
         login(userDetial);
-        console.log("You are login");
-        console.log(userDetial);
         setError(false);
       }
     },
   });
-  // console.log(useAuth());
 
   return (
     <View style={styles.Login__container}>
