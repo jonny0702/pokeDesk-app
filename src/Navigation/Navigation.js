@@ -10,7 +10,7 @@ const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName="PokeDex">
       <Tab.Screen
         name="Acount"
         component={AcountNavigation}
