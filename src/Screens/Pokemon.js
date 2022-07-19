@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { ScrollView, Text, StyleSheet, ActivityIndicator } from "react-native";
 import { getPokemon } from "../Api/Pokemon";
+import useAuth from "../hooks/useAuth";
 import HeaderPokemon from "../Components/HeaderPokemon";
 import Types from "../Components/Types";
 import PokemonStats from "../Components/PokemonStats";
+import Favorite from "../Components/Favorite";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 const Pokemon = ({ navigation, route: { params } }) => {
   const [data, setData] = useState({});
   const [pokemonType, setPokemonType] = useState({});
+  const { auth } = useAuth();
+
   const hasTypes = Object.keys(pokemonType).length > 0;
 
   const getPokemonData = async (id) => {
@@ -21,10 +25,11 @@ const Pokemon = ({ navigation, route: { params } }) => {
       navigation.goBack();
     }
   };
+  // console.log(data.id);
 
   useEffect(() => {
     navigation.setOptions({
-      headerRigth: () => null,
+      headerRight: () => auth && <Favorite pokemonId={data?.id} />,
       headerLeft: () => (
         <Icon
           name="arrow-left"
@@ -35,7 +40,7 @@ const Pokemon = ({ navigation, route: { params } }) => {
         />
       ),
     });
-  }, [navigation, params]);
+  }, [navigation, params, data]);
 
   useEffect(() => {
     (async () => {
