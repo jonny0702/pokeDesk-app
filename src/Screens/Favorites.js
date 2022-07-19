@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { SafeAreaView, Text, StyleSheet, Button } from "react-native";
+import { Text, StyleSheet } from "react-native";
 import PokemonList from "../Components/PokemonList";
 import useAuth from "../hooks/useAuth";
 import { useFocusEffect } from "@react-navigation/native";
