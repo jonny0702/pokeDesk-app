@@ -15,8 +15,27 @@ export const addPokemonToFavoritesApi = async (id) => {
 export const getPokemonFavoritesApi = async () => {
   try {
     const response = await AsyncStorage.getItem(FAVORITES_STORAGE);
-    return JSON.parse(response || []);
+    return response ? JSON.parse(response) : [];
   } catch (error) {
     throw error.message;
+  }
+};
+
+export const isPokemonFavoriteApi = async (id) => {
+  try {
+    const responseFavorite = await getPokemonFavoritesApi();
+    return includes(responseFavorite, id);
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const removePokemonFavoriteApi = async (id) => {
+  try {
+    const favorite = await getPokemonFavoritesApi();
+    const newFavorites = pull(favorite, id);
+    await AsyncStorage.setItem(FAVORITES_STORAGE, JSON.stringify(newFavorites));
+  } catch (error) {
+    throw error;
   }
 };
