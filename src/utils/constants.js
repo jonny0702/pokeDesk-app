@@ -20,5 +20,60 @@ export const POKEMON_TYPE_COLORS = {
   dark: "#705848",
   fairy: "#EE99AC",
 };
-
+export const POKEMON_TYPE_ICONS = {
+  normal: {
+    uri: require("../assets/typeIcons/Normaltype.png"),
+  },
+  fighting: {
+    uri: require("../assets/typeIcons/FightingType.png"),
+  },
+  flying: {
+    uri: require("../assets/typeIcons/FlyingType.png"),
+  },
+  poison: {
+    uri: require("../assets/typeIcons/Poisiontype.png"),
+  },
+  ground: {
+    uri: require("../assets/typeIcons/GroundType.png"),
+  },
+  rock: {
+    uri: require("../assets/typeIcons/RockType.png"),
+  },
+  bug: {
+    uri: require("../assets/typeIcons/BugType.png"),
+  },
+  ghost: {
+    uri: require("../assets/typeIcons/GhostType.png"),
+  },
+  steel: {
+    uri: require("../assets/typeIcons/SteelType.png"),
+  },
+  fire: {
+    uri: require("../assets/typeIcons/FireType.png"),
+  },
+  water: {
+    uri: require("../assets/typeIcons/WaterType.png"),
+  },
+  grass: {
+    uri: require("../assets/typeIcons/GrassType.png"),
+  },
+  electric: {
+    uri: require("../assets/typeIcons/ElectricType.png"),
+  },
+  psychic: {
+    uri: require("../assets/typeIcons/psychictype.png"),
+  },
+  ice: {
+    uri: require("../assets/typeIcons/IceType.png"),
+  },
+  dragon: {
+    uri: require("../assets/typeIcons/DragonType.png"),
+  },
+  dark: {
+    uri: require("../assets/typeIcons/Darktype.png"),
+  },
+  fairy: {
+    uri: require("../assets/typeIcons/FairyType.png"),
+  },
+};
 export const FAVORITES_STORAGE = "favorites";
