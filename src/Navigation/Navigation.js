@@ -15,8 +15,11 @@ const Navigation = () => {
         name="Acount"
         component={AcountNavigation}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="user" color={color} size={size} />
+          tabBarIcon: () => (
+            <Image
+              source={require("../assets/pokecoin.png")}
+              style={{ width: 30, height: 30 }}
+            />
           ),
         }}
       />
@@ -32,8 +35,11 @@ const Navigation = () => {
         name="favorites"
         component={FavoritesNavigation}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="heart" color={color} size={size} />
+          tabBarIcon: () => (
+            <Image
+              source={require("../assets/estrella.png")}
+              style={{ width: 30, height: 30 }}
+            />
           ),
         }}
       />
