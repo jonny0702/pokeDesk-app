@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import { capitalize } from "lodash";
 
 const PokemonStats = ({ stats }) => {
@@ -20,7 +20,13 @@ const PokemonStats = ({ stats }) => {
 
   return (
     <View style={styles.contentStats}>
-      <Text style={styles.statsTitle}>Base Stats</Text>
+      <View style={styles.statsTitle__container}>
+        <Text style={styles.statsTitle}>Base Stats</Text>
+        <Image
+          source={require("../assets/pikachu.png")}
+          style={styles.stats__image}
+        />
+      </View>
       {stats &&
         stats.map((item, index) => (
           <View key={index} style={styles.statContainer__card}>
@@ -47,10 +53,18 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginBottom: 30,
   },
+  statsTitle__container: {
+    flexDirection: "row",
+  },
   statsTitle: {
     fontWeight: "bold",
     fontSize: 20,
     paddingBottom: 5,
+  },
+  stats__image: {
+    marginLeft: 5,
+    width: 30,
+    height: 30,
   },
   statContainer__card: {
     flexDirection: "row",

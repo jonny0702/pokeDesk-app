@@ -7,6 +7,7 @@ import Types from "../Components/Types";
 import PokemonStats from "../Components/PokemonStats";
 import Favorite from "../Components/Favorite";
 import PokemonAbility from "../Components/PokemonAbility";
+import PokemonInfo from "../Components/PokemonInfo";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 const Pokemon = ({ navigation, route: { params } }) => {
@@ -26,7 +27,6 @@ const Pokemon = ({ navigation, route: { params } }) => {
       navigation.goBack();
     }
   };
-  // console.log(data.id);
 
   useEffect(() => {
     navigation.setOptions({
@@ -63,6 +63,11 @@ const Pokemon = ({ navigation, route: { params } }) => {
       <Types types={data.types} />
       <PokemonStats stats={data.stats} />
       <PokemonAbility abilities={data.abilities} />
+      <PokemonInfo
+        experience={data.base_experience}
+        weight={data.weight}
+        pokemonHeight={data.height}
+      />
     </ScrollView>
   );
 };
