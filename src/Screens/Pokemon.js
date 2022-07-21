@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { ScrollView, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { ScrollView, Image, StyleSheet, ActivityIndicator } from "react-native";
 import { getPokemon } from "../Api/Pokemon";
 import useAuth from "../hooks/useAuth";
 import HeaderPokemon from "../Components/HeaderPokemon";
 import Types from "../Components/Types";
 import PokemonStats from "../Components/PokemonStats";
 import Favorite from "../Components/Favorite";
+import PokemonAbility from "../Components/PokemonAbility";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 const Pokemon = ({ navigation, route: { params } }) => {
@@ -61,6 +62,7 @@ const Pokemon = ({ navigation, route: { params } }) => {
       />
       <Types types={data.types} />
       <PokemonStats stats={data.stats} />
+      <PokemonAbility abilities={data.abilities} />
     </ScrollView>
   );
 };

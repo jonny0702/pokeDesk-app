@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   contentStats: {
     paddingHorizontal: 20,
     marginTop: 40,
-    marginBottom: 80,
+    marginBottom: 30,
   },
   statsTitle: {
     fontWeight: "bold",
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   statTitle: {
     fontSize: 12,
-    color: "#6b6b",
+    color: "#424242",
   },
   containerInfo: {
     width: "70%",
