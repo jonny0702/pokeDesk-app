@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { getPokemonFavoritesApi } from "../../Api/FavoriteApi";
+import ItemMenu from "../ItemMenu";
 import useAuth from "../../hooks/useAuth";
 
 const UserData = () => {
@@ -40,15 +41,6 @@ const UserData = () => {
   );
 };
 
-const ItemMenu = ({ title, text }) => {
-  return (
-    <View style={styles.ItemMenu}>
-      <Text style={styles.itemMenu__title}>{title}: </Text>
-      <Text>{text}</Text>
-    </View>
-  );
-};
-
 const styles = StyleSheet.create({
   userContent: {
     marginHorizontal: 20,
@@ -63,17 +55,6 @@ const styles = StyleSheet.create({
   },
   data__container: {
     marginBottom: 20,
-  },
-  ItemMenu: {
-    flexDirection: "row",
-    paddingVertical: 20,
-    borderBottomWidth: 1,
-    borderColor: "#cfcfcf",
-  },
-  itemMenu__title: {
-    width: 120,
-    fontWeight: "bold",
-    paddingRight: 8,
   },
   logOut__button: {
     justifyContent: "center",

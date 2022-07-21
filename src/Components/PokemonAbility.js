@@ -7,10 +7,15 @@ const PokemonAbility = ({ abilities }) => {
     normalAbility: "#FFC300",
   };
 
-  // console.log(abilities?.map((ability) => ability));
   return (
     <View style={styles.AbilitiesSection__container}>
-      <Text style={styles.Abilities__title}>Pokemon Abilities</Text>
+      <View style={styles.AbilitiesTitle__container}>
+        <Text style={styles.Abilities__title}>Pokemon Abilities</Text>
+        <Image
+          source={require("../assets/puno.png")}
+          style={styles.AbilitiesTitle_image}
+        />
+      </View>
       <View style={{ flexDirection: "row" }}>
         {abilities?.map((item, index) => (
           <View
@@ -49,10 +54,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 30,
   },
+  AbilitiesTitle__container: {
+    flexDirection: "row",
+  },
   Abilities__title: {
     fontWeight: "bold",
     fontSize: 20,
     paddingBottom: 20,
+  },
+  AbilitiesTitle_image: {
+    marginLeft: 5,
+    width: 30,
+    height: 30,
   },
   "Ability__card--container": {
     flexDirection: "column",
