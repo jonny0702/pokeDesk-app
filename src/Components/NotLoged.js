@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import Model from "./Model";
 
 const NotLoged = () => {
   const navigation = useNavigation();
@@ -16,9 +17,11 @@ const NotLoged = () => {
       <TouchableOpacity
         style={styles.goToLoginButton}
         onPress={goToLoginScreen}
+        type="button"
       >
         <Text style={styles.goToLoginButton__Text}>Go to Login screen</Text>
       </TouchableOpacity>
+      <Model isFavoritesScreen />
     </View>
   );
 };
