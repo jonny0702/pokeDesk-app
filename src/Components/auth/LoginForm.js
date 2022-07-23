@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native";
+import Model from "../Model";
 import useAuth from "../../hooks/useAuth";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -42,6 +43,7 @@ const LoginForm = () => {
       <View style={styles.input__container}>
         <TextInput
           placeholder="username"
+          name="user"
           style={styles.Login__inputs}
           autoCapitalize="none"
           value={formik.values.username}
@@ -49,6 +51,7 @@ const LoginForm = () => {
         />
         <TextInput
           placeholder="password"
+          name="password"
           style={styles.Login__inputs}
           autoCapitalize="none"
           secureTextEntry={true}
@@ -56,7 +59,7 @@ const LoginForm = () => {
           onChangeText={(text) => formik.setFieldValue("password", text)}
         />
         <TouchableOpacity
-          onPress={formik.handleSubmit}
+          onPress={formik.submitForm}
           style={styles.Button__login}
         >
           <Text style={styles.button__text}>Log in</Text>
@@ -69,8 +72,22 @@ const LoginForm = () => {
           </Text>
         )}
       </View>
+      <Model />
     </View>
   );
+};
+const initialValues = () => {
+  return {
+    username: "",
+    password: "",
+  };
+};
+
+const validationSchema = () => {
+  return {
+    username: Yup.string().required("You need to introduce the user"),
+    password: Yup.string().required("You need to intorduce the password"),
+  };
 };
 
 const styles = StyleSheet.create({
@@ -122,19 +139,5 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 });
-
-const initialValues = () => {
-  return {
-    username: "",
-    password: "",
-  };
-};
-
-const validationSchema = () => {
-  return {
-    username: Yup.string().required("You need the user"),
-    password: Yup.string().required("You need to intorduce the password"),
-  };
-};
 
 export default LoginForm;

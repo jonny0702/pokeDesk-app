@@ -3,6 +3,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { getPokemonFavoritesApi } from "../../Api/FavoriteApi";
 import ItemMenu from "../ItemMenu";
+import Model from "../Model";
 import useAuth from "../../hooks/useAuth";
 
 const UserData = () => {
