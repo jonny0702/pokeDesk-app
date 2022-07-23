@@ -5,11 +5,13 @@ import PokemonList from "../Components/PokemonList";
 import SearchBar from "../Components/SearchBar";
 
 import { getPokemonsApi, getPokemonDetailApi } from "../Api/Pokemon";
+import { ActivityIndicator } from "react-native";
 
 const PokeDex = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [searchPokemons, setSearchPokemons] = useState([]);
   const [nextUrl, setNextUrl] = useState();
+  const [loading, setLoading] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
   const handleChanege = (event) => {
@@ -35,7 +37,7 @@ const PokeDex = () => {
         });
       }
       setPokemonData([...pokemonData, ...pokemonsDetail]);
-
+      setLoading(true);
       setNextUrl(pokemons.next);
     } catch (error) {
       console.log(error);
@@ -47,6 +49,19 @@ const PokeDex = () => {
     })();
   }, []);
 
+  if (!loading) {
+    return (
+      <ActivityIndicator
+        size={70}
+        color="#FFC300"
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+      />
+    );
+  }
   return (
     <SafeAreaView style={Platform.OS === "ios" ? {} : styles.SafeAreaAndroid}>
       <SearchBar>
