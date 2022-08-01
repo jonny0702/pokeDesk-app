@@ -22,6 +22,7 @@ The app is build in  **React Native  Expo**.
 `npm install`
 
 <h4>Start The Project</h4>
+
 `yarn start`
 
 `yarn android`
