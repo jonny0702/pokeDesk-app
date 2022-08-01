@@ -1,4 +1,4 @@
-##Pokedex React Native App
+<h1>Pokedex React Native App</h1>
 
 ![](https://firebasestorage.googleapis.com/v0/b/portfolio-fca3e.appspot.com/o/Pokedex.png?alt=media&token=17443364-ebe0-4347-9d1e-aebc1527d2ae)
 It is a pokedex where we can get the info of all the pokemons that exits.
