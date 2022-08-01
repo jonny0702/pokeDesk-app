@@ -6,10 +6,10 @@ It is a pokedex where we can get the info of all the pokemons that exits.
 The app is build in  **React Native  Expo**.
 <h4>Technologies</h4>
 <ul>
-  <li>- React Native</li>
-  <li>- Three and Expo Three for 3d  model</li>
-  <li>- formik and lodash for the auth</li>
-  <li>- Async Storage to use the local storage</li>
+  <li>React Native</li>
+  <li>Three and Expo Three for 3d  model</li>
+  <li>formik and lodash for the auth</li>
+  <li>Async Storage to use the local storage</li>
 </ul>
 
 <h3>Usage</h3>
