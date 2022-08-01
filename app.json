@@ -1,7 +1,7 @@
 {
   "expo": {
     "owner": "jonhy_vr",
-    "name": "pokeDesk-app",
+    "name": "pokedex",
     "slug": "pokeDesk-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,7 +22,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.jonathan.pokedesk",
+      "package": "pokedeskapp.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
